@@ -5,4 +5,4 @@ class Intersection:
 
 
     def __str__(self):
-        return f"<Intersection {self.id}>"
+        return f"<Intersection {self.id_}>"
