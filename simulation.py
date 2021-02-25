@@ -1,5 +1,5 @@
 class Simulation:
-    def __init__(self, duration, points, streets, intersections, cars):
+    def __init__(self, duration, points, streets, intersections, cars, schedules):
         self.duration = duration
         self.points = points
         self.streets = streets
