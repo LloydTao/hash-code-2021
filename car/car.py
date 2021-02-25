@@ -1,12 +1,12 @@
 #!/bin/python3
 
 
-class Path:
+class Car:
     def __init__(self, path):
         self.path = path
 
     def __str__(self):
-        return "{self.path}".format(self=path)
+        return "{self.path}".format(self=self)
 
 
 if __name__ == "__main__":
@@ -16,5 +16,5 @@ if __name__ == "__main__":
         Street(2, 3, "Marija Road", 4),
         Street(2, 3, "Mat Road", 5),
     ]
-    path = Path(streets)
-    print(path)
+    car = Car(Path(streets))
+    print(car)
