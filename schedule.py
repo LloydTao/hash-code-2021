@@ -38,8 +38,8 @@ if __name__ == "__main__":
     intersection = Intersection(0)
     intersection2 = Intersection(1)
 
-    street = Street(0, 1, "Main Road", 5)
+    street = Street(intersection, intersection2, "Main Road", 5)
 
     schedule = Schedule(intersection, [(street, 5)])
 
-    print(schedule.output_to_file())
+    print(schedule.output_format())
