@@ -1,5 +1,3 @@
-#!/bin/python3
-
 from intersection import Intersection
 
 
