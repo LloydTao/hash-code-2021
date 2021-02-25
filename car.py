@@ -1,7 +1,5 @@
 #!/bin/python3
 
-from street import Street
-
 
 class Car:
     def __init__(self, path):
@@ -13,10 +11,10 @@ class Car:
 
 if __name__ == "__main__":
     streets = [
-        Street(0, 1, "Main Road", 2),
-        Street(1, 2, "Lewis Road", 3),
-        Street(2, 3, "Marija Road", 4),
-        Street(2, 3, "Mat Road", 5),
+        "Main Road",
+        "Lewis Road",
+        "Marija Road",
+        "Mat Road",
     ]
     car = Car(streets)
     print(car)
