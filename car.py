@@ -1,5 +1,7 @@
 #!/bin/python3
 
+from street import Street
+
 
 class Car:
     def __init__(self, path):
@@ -16,5 +18,5 @@ if __name__ == "__main__":
         Street(2, 3, "Marija Road", 4),
         Street(2, 3, "Mat Road", 5),
     ]
-    car = Car(Path(streets))
+    car = Car(streets)
     print(car)
