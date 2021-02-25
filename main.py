@@ -11,14 +11,6 @@ import street
 from intersection import Intersection
 from car import Car
 from street import Street
-from path import Path
-
-
-def read_and_format(line):
-    """
-    Read a line string, and return all 
-    """
-    return line.strip().split(" ")
 
 
 def get_street_by_name(streets, street_name):
@@ -40,13 +32,22 @@ def populate_objects(dataset_path):
 
         data = [line.strip().split(" ") for line in f.readlines()]
         data[0] = list(map(int, data[0]))
-        dur, inter, streets, paths, points = data[0][0], data[0][1], data[0][2], data[0][3], data[0][4]
+        dur, inter, street_idx, paths, points = data[0][0], data[0][1], data[0][2], data[0][3], data[0][4]
 
         intersections = [Intersection(i) for i in range(inter)]
-        streets = [Street(intersections[i[0]], intersections[i[1]],
-                          i[2], i[3]) for i in data[1:streets]]
+        streets = [Street(intersections[int(i[0])], intersections[int(i[1])],
+                          i[2], i[3]) for i in data[1:street_idx+1]]
 
-    return dur, intersections, streets, paths, points
+        paths = [i[1:] for i in data[street_idx+1:]]
+        new_paths = []
+
+        for path in paths:
+            new = [get_street_by_name(streets, x) for x in path]
+            new_paths.append(new)
+
+        cars = [Car(new_path) for new_path in new_paths]
+
+    return dur, intersections, streets, cars, points
 
 
 class Solution:
