@@ -1,5 +1,7 @@
 #!/bin/python3
 
+from intersection import Intersection
+
 
 class Street:
     def __init__(self, start, end, name, length):
@@ -13,5 +15,7 @@ class Street:
 
 
 if __name__ == "__main__":
-    street = Street(0, 1, "Main Road", 5)
+    start = Intersection(0)
+    end = Intersection(1)
+    street = Street(start, end, "Main Road", 5)
     print(street)
