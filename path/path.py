@@ -10,11 +10,11 @@ class Path:
 
 
 if __name__ == "__main__":
-    sequence = [
+    streets = [
         Street(0, 1, "Main Road", 2),
         Street(1, 2, "Lewis Road", 3),
         Street(2, 3, "Marija Road", 4),
         Street(2, 3, "Mat Road", 5),
     ]
-    path = Path(sequence)
+    path = Path(streets)
     print(path)
