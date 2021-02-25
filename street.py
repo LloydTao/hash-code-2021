@@ -11,7 +11,9 @@ class Street:
         self.length = length
 
     def __str__(self):
-        return "{self.name}".format(self=self)
+        return "{self.name} (Len: {self.length}) | {self.start} -> {self.end}".format(
+            self=self
+        )
 
 
 if __name__ == "__main__":
