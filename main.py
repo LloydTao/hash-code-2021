@@ -39,13 +39,14 @@ def populate_objects(dataset_path):
                           i[2], i[3]) for i in data[1:street_idx+1]]
 
         paths = [i[1:] for i in data[street_idx+1:]]
-        new_paths = []
+        cars = [Car(path) for path in paths]
 
-        for path in paths:
-            new = [get_street_by_name(streets, x) for x in path]
-            new_paths.append(new)
+        # NOTE: Commented out due to removing car paths having street objects
+        #new_paths = []
 
-        cars = [Car(new_path) for new_path in new_paths]
+        # for path in paths:
+        #    new = [get_street_by_name(streets, x) for x in path]
+        #    new_paths.append(new)
 
     return dur, intersections, streets, cars, points
 
