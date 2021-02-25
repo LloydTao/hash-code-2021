@@ -30,17 +30,25 @@ def populate_objects(dataset_path):
 
         data = [line.strip().split(" ") for line in f.readlines()]
         data[0] = list(map(int, data[0]))
-        dur, inter, street_idx, paths, points = data[0][0], data[0][1], data[0][2], data[0][3], data[0][4]
+        dur, inter, street_idx, paths, points = (
+            data[0][0],
+            data[0][1],
+            data[0][2],
+            data[0][3],
+            data[0][4],
+        )
 
         intersections = [Intersection(i) for i in range(inter)]
-        streets = [Street(intersections[int(i[0])], intersections[int(i[1])],
-                          i[2], i[3]) for i in data[1:street_idx+1]]
+        streets = [
+            Street(intersections[int(i[0])], intersections[int(i[1])], i[2], i[3])
+            for i in data[1 : street_idx + 1]
+        ]
 
-        paths = [i[1:] for i in data[street_idx+1:]]
+        paths = [i[1:] for i in data[street_idx + 1 :]]
         cars = [Car(path) for path in paths]
 
         # NOTE: Commented out due to removing car paths having street objects
-        #new_paths = []
+        # new_paths = []
 
         # for path in paths:
         #    new = [get_street_by_name(streets, x) for x in path]
